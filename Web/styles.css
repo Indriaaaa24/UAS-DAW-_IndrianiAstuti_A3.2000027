@@ -1,0 +1,995 @@
+/*===== Code Pemanggilan google font =====*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/*===== code untuk Variable CSS =====*/
+:root {
+  --header-height: 3rem;
+
+  /*========== Untuk Warna ==========*/
+  --first-color: #DA2535;
+  --first-color-alt: #C42130;
+  --first-color-send: #DE3B49;
+  --title-color: #161212;
+  --text-color: #5B5757;
+  --text-color-light: #8F8A8A;
+  --body-color: #FEFBFB;
+  --container-color: #FFF;
+  --pinky-color:#F4C2C2;
+
+  /*========== untuk tulisan ==========*/
+  --body-font: 'Poppins', sans-serif;
+  --biggest-font-size: 2rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1.125rem;
+  --normal-font-size: .938rem;
+  --small-font-size: .813rem;
+
+  /*========== untuk style weight dari tulisan ==========*/
+  --font-semi-bold: 600;
+  --font-bold: 700;
+
+  /*========== ini code batasan luar ==========*/
+  --mb-1: .5rem;
+  --mb-2: 1rem;
+  --mb-3: 1.5rem;
+  --mb-4: 2rem;
+  --mb-5: 2.5rem;
+  --mb-6: 3rem;
+  /*========== z index ==========*/
+
+  --z-tooltip: 10;
+  --z-fixed: 1000;
+}
+.mt-2{
+  margin-top: 1rem;
+}
+@media screen and (min-width: 968px){
+  :root{
+    --biggest-font-size: 3rem;
+    --h2-font-size: 1.75rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+  }
+}
+
+/*========== code pondasinya ==========*/
+*,::before,::after{
+  box-sizing: border-box;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+/*========== variabel tema gelap ==========*/
+body.dark-theme{
+  --first-color-send: #161212;
+  --title-color: #F3F1F1;
+  --text-color: #D1C7C8;
+  --body-color: #251D1E;
+  --container-color: #302728;
+}
+
+/*========== ini code untuk tombol gelap/terang ==========*/
+.change-theme{
+  position: absolute;
+  right: 1.5rem;
+  top: 2.2rem;
+  display: flex;
+  color: var(--title-color);
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+body{
+  margin: var(--header-height) 0 0 0;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+h1,h2,h3,ul,p{
+  margin: 0;
+}
+
+h1,h2,h3{
+  font-weight: var(--font-semi-bold);
+  color: var(--title-color);
+}
+
+ul{
+  padding: 0;
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+}
+
+img{
+  max-width: 100%;
+  height: auto;
+}
+
+.bg-title{
+  width:150px;
+  height: auto;
+}
+
+.title{
+  width: 200px;
+  height: auto;
+  position: absolute;
+  z-index: -100;
+  margin-top: -40px;
+  margin-left: -30px;
+}
+
+.title-produk{
+  width: 200px;
+  height: auto;
+  position: absolute;
+  z-index: -100;
+  margin-top: -40px;
+  margin-left: -30px;
+}
+
+.text-center{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/*========== code class class di CSS ==========*/
+.section{
+  padding: 4rem 0 2rem;
+}
+
+.section-title, .section-title-center{
+  font-size: var(--h2-font-size);
+  color: var(--title-color);
+  text-align: center;
+  margin-bottom: var(--mb-3);
+}
+
+/*========== Layout ==========*/
+.l-main{
+  overflow: hidden;
+}
+
+.bd-container{
+  max-width: 968px;
+  width: calc(100% - 3rem);
+  margin-left: var(--mb-3);
+  margin-right: var(--mb-3);
+}
+
+.bd-grid{
+  display: grid;
+  gap: 1.5rem;
+}
+
+.l-header{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+  background-color: var(--pinky-color);
+}
+
+/*========== code untuk navigation bar ==========*/
+.logo{
+  width: 130px;
+  height: 130px;
+}
+
+.nav{
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px){
+  .nav__menu{
+    position: fixed;
+    top: -100%;
+    left: 0;
+    right: 0;
+    width: 90%;
+    margin: 0 auto;
+    padding: 2.5rem 0 0;
+    text-align: center;
+    background-color: var(--body-color);
+    transition: .4s;
+    box-shadow: 0 0 4px rgba(0,0,0,.1);
+    border-radius: 2rem;
+    z-index: var(--z-fixed);
+  }
+}
+
+.nav__item{
+  margin-bottom: var(--mb-3);
+}
+
+.nav__link, .nav__logo, .nav__toggle{
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+}
+
+.nav__logo:hover{
+  color: var(--first-color);
+}
+
+.nav__link{
+  transition: .3s;
+}
+
+.nav__link:hover{
+  color: var(--first-color);
+}
+
+.nav__toggle{
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+/* Code tampil menu */
+.show-menu{
+  top: calc(var(--header-height) + 1rem);
+}
+
+/* Active menu link */
+.active-link{
+  position: relative;
+}
+
+.active-link::before{
+  content: '';
+  position: absolute;
+  bottom: -.75rem;
+  left: 45%;
+  width: 5px;
+  height: 5px;
+  background-color: var(--title-color);
+  border-radius: 50%;
+}
+
+/* code perubahan background header */
+.scroll-header{
+  box-shadow: 0 1px 4px rgba(0,0,0,.1);
+}
+
+/* Code tombol untuk scroll otomatis ke atas */
+.scrolltop{
+  position: fixed;
+  right: 1rem;
+  bottom: -20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .3rem;
+  background: rgba(218,37,53,.5);
+  border-radius: .4rem;
+  z-index: var(--z-tooltip);
+  transition: .4s;
+  visibility: hidden;
+}
+
+.scrolltop:hover{
+  background-color: var(--first-color);
+}
+
+.scrolltop__icon{
+  font-size: 1.5rem;
+  color: var(--body-color);
+}
+
+.show-scroll{
+  visibility: visible;
+  bottom: 1.5rem;
+}
+
+/*========== Code untuk page Home ==========*/
+.home__container{
+  row-gap: .5rem;
+  height:100vh
+}
+
+.home__img{
+  width: 280px;
+  justify-self: center;
+}
+
+.home__title{
+  font-size: var(--biggest-font-size);
+  font-weight: var(--font-bold);
+  margin-bottom: var(--mb-2);
+}
+
+.home__description{
+  margin-bottom: var(--mb-3);
+}
+
+section.home{
+  background-color: var(--pinky-color);
+}
+
+.wave{
+  z-index: 100;
+  margin-top:-250px;
+}
+
+/*========== Code Tombol ==========*/
+.button{
+  display: inline-block;
+  background-color: var(--first-color);
+  color: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: .5rem;
+  font-weight: var(--font-semi-bold);
+  transition: .3s;
+}
+
+.button:hover{
+  background-color: var(--first-color-alt);
+}
+
+.button-link{
+  background: none;
+  padding: 0;
+  color: var(--first-color);
+}
+
+.button-link:hover{
+  background-color: transparent;
+  color: var(--first-color-alt);
+}
+
+/*========== Code untuk dekorasi tampilan ==========*/
+.produk-img{
+  width: 200px;
+  height: 200px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.produk__container{
+  grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+}
+
+.produk__data{
+  text-align: center;
+  padding: 1rem 1rem 2rem;
+  background-color: var(--container-color);
+  box-shadow: 0 2px 6px rgba(65,11,16,.15);
+  border-radius: 1rem;
+}
+
+.produk__data:hover{
+  box-shadow: 0 3px 12px rgba(65,11,16,.15);
+}
+
+.produk__img{
+  width: 150px;
+}
+
+.produk__title{
+  font-size: var(--h3-font-size);
+  margin-bottom: var(--mb-1);
+}
+
+.profil__container{
+  row-gap: .5rem;
+  height:auto
+}
+
+/*========== code untuk halaman Profil ==========*/
+
+.card_profil{
+  width: 100%;
+  height: 250px;
+  background-color: var(--pinky-color);
+  border-radius: 30px;
+  padding: 1.5rem 1rem 2rem;
+  box-shadow: 0 0px 20px rgb(65 11 16 / 18%);
+  margin: 10px 10px;
+  justify-self: center;
+  display: -webkit-inline-box;
+}
+
+.card_profil .profil_img{
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+  border-style: dashed;
+  border-width: 10px;
+  border-color: white;
+}
+
+.profil_img img{
+  object-fit: cover;
+  object-position: bottom;
+  width: 100%;
+  height: 100%;
+  border: 2 #fff;
+}
+
+.profil_data{
+  text-align: initial;
+  width: 50%;
+  height: auto;
+  padding: 1rem 1rem 2rem;
+}
+
+/*========== code untuk halaman belanja ==========*/
+.shop__container{
+  grid-template-columns: repeat(2,1fr);
+  padding-bottom: 2rem;
+}
+
+.shop__content{
+  position: relative;
+  display: grid;
+  padding: .25rem .75rem .75rem;
+  background-color: var(--container-color);
+  box-shadow: 0 2px 6px rgba(65,11,16,.15);
+  border-radius: 1rem;
+}
+
+.shop__content:hover{
+  box-shadow: 0 3px 12px rgba(65,11,16,.15);
+}
+
+.shop__img{
+  width: 110px;
+  justify-self: center;
+  margin-bottom: .25rem;
+}
+
+.shop__title, .shop__category{
+  text-align: center;
+}
+
+.shop__title{
+  font-size: var(--normal-font-size);
+}
+
+.shop__category{
+  font-size: var(--small-font-size);
+  margin-bottom: var(--mb-1);
+  color: var(--text-color-light);
+}
+
+.shop__preci{
+  font-weight: var(--font-semi-bold);
+  color: var(--title-color);
+}
+
+.shop__button{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  font-size: 1.25rem;
+  padding: .5rem .625rem;
+  border-radius: 1rem 0 1rem 0;
+}
+
+/*========== SEND GIFT ==========*/
+.send{
+  background-color: var(--first-color-send);
+}
+
+.profil_title, .profil_description{
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.profil_description{
+  text-align: justify;
+  margin-bottom: var(--mb-4);
+}
+
+.profil_direction{
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: .5rem;
+  border-radius: .5rem;
+}
+
+.profil_input{
+  width: 70%;
+  outline: none;
+  border: none;
+  font-size: var(--normal-font-size);
+  font-family: var(--body-font);
+}
+
+.profil_input::placeholder{
+  font-family: var(--body-font);
+}
+
+.profil_img{
+  width: 280px;
+  justify-self: center;
+}
+
+/*========== FOOTER ==========*/
+footer{
+ background-color:var(--background-color);
+}
+
+.footer_background{
+ height:200px;
+ overflow:hidden;
+}
+
+.footer_background .img_footer{
+	width:100%;
+	height:100;
+}
+
+.footer__container{
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.footer__logo{
+  color: var(--title-color);
+}
+
+.footer__title{
+  margin-bottom: var(--mb-2);
+}
+
+.footer__logo, .footer__title{
+  font-size: var(--h3-font-size);
+}
+
+.footer__link{
+  display: inline-block;
+  margin-bottom: .75rem;
+  color: var(--text-color);
+}
+
+.footer__link:hover{
+  color: var(--first-color);
+}
+
+.footer__social{
+  font-size: 1.5rem;
+  color: var(--title-color);
+  margin-right: var(--mb-3);
+}
+
+.footer__social:hover{
+  color: var(--first-color);
+}
+
+.footer__copy{
+  text-align: center;
+  font-size: var(--small-font-size);
+  color: var(--text-color-light);
+  margin-top: 4rem;
+}
+
+.table{
+  width: 100%;
+  text-align: left;
+}
+
+/*========== ini bagian untuk responsive ke semua media ==========*/
+
+/* Untuk layar penuh pada handphone yang kecil */
+@media screen and (min-width: 320px){
+  .deskripsi__img,
+  .share__img,
+  .profi_img img{
+    width: 100%;
+  }
+  .home__img{
+    width: 75%;
+  }
+  .wave{
+    position: relative;
+    z-index: 10;
+    margin-top:-70px;
+  }
+  .logo{
+    width: 100px;
+    height: 100px;
+  }
+  
+  .bg-title{
+    width:150px;
+    height: auto;
+  }
+
+  .title{
+    width: 170px;
+    height: auto;
+    position: absolute;
+    z-index: -100;
+    margin-top: -40px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .title-produk{
+    width: 170px;
+    height: auto;
+    position: absolute;
+    z-index: -100;
+    margin-top: -40px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+/*========== code untuk halaman Profil ==========*/
+
+.card_profil{
+  width: 100%;
+  height: auto;
+  background-color: var(--pinky-color);
+  border-radius: 30px;
+  padding: 1.5rem 1rem 2rem;
+  box-shadow: 0 0px 20px rgb(65 11 16 / 18%);
+  margin: 10px 10px;
+  justify-self: center;
+  display: grid;
+}
+
+.card_profil .profil_img{
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+  border-style: dashed;
+  border-width: 10px;
+  border-color: white;
+}
+
+.profil_img img{
+  object-fit: cover;
+  object-position: bottom;
+  width: 100%;
+  height: 100%;
+  border: 2 #fff;
+}
+
+.profil_data{
+  text-align: initial;
+  width: 100%;
+  height: auto;
+  padding: 1rem 1rem 2rem;
+}
+
+.profil_title, .profil_description{
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.profil_description{
+  text-align: justify;
+  margin-bottom: var(--mb-4);
+}
+
+.profil_direction{
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: .5rem;
+  border-radius: .5rem;
+}
+
+.profil_input{
+  width: 70%;
+  outline: none;
+  border: none;
+  font-size: var(--normal-font-size);
+  font-family: var(--body-font);
+}
+
+.profil_input::placeholder{
+  font-family: var(--body-font);
+}
+
+.profil_img{
+  width: 280px;
+  justify-self: center;
+}
+}
+
+@media screen and (min-width: 576px){
+  .home__container,
+  .deskripsi__container,
+  .share__container,
+  .profi_container{
+    grid-template-columns: repeat(2,1fr);
+    align-items: center;
+  }
+
+  .home__container{
+    padding: 5rem 0 0;
+  }
+
+  .home__img{
+    order: 1;
+  }
+
+  .section-title-center,
+  .deskripsi__data,
+  .share__data,
+  .profi_description{
+    text-align: initial;
+  }
+
+  .home__img,
+  .deskripsi__img,
+  .share__img,
+  .profi_img{
+    width: 100%;
+  }
+  
+  .deskripsi__img{
+    order:-1;
+  }
+
+  .share__img{
+    order: 1;
+  }
+}
+
+@media screen and (min-width: 768px){
+  
+/*========== code untuk halaman Profil ==========*/
+
+.card_profil{
+  width: 100%;
+  height: 250px;
+  background-color: var(--pinky-color);
+  border-radius: 30px;
+  padding: 1.5rem 1rem 2rem;
+  box-shadow: 0 0px 20px rgb(65 11 16 / 18%);
+  margin: 10px 10px;
+  justify-self: center;
+  display: -webkit-inline-box;
+}
+
+.card_profil .profil_img{
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+  border-style: dashed;
+  border-width: 10px;
+  border-color: white;
+}
+
+.profil_img img{
+  object-fit: cover;
+  object-position: bottom;
+  width: 100%;
+  height: 100%;
+  border: 2 #fff;
+}
+
+.profil_data{
+  text-align: initial;
+  width: 50%;
+  height: auto;
+  padding: 1rem 1rem 2rem;
+}
+
+.profil_title, .profil_description{
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.profil_description{
+  text-align: left;
+  margin-bottom: var(--mb-4);
+}
+
+.profil_direction{
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: .5rem;
+  border-radius: .5rem;
+}
+
+.profil_input{
+  width: 70%;
+  outline: none;
+  border: none;
+  font-size: var(--normal-font-size);
+  font-family: var(--body-font);
+}
+
+.profil_input::placeholder{
+  font-family: var(--body-font);
+}
+
+.profil_img{
+  width: 280px;
+  justify-self: center;
+}
+
+  body{
+    margin: 0;
+  }
+
+  .logo{
+    width: 100px;
+    height: 100px;
+  }
+  
+  .bg-title{
+    width:150px;
+    height: auto;
+  }
+
+  .title{
+    width: 170px;
+    height: auto;
+    position: absolute;
+    z-index: -100;
+    margin-top: -40px;
+    margin-left: -113px;
+    margin-right: auto;
+  }
+
+  .title-produk{
+    width: 170px;
+    height: auto;
+    position: absolute;
+    z-index: -100;
+    margin-top: -40px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .wave{
+    position: relative;
+    z-index: 10;
+    margin-top:-155px;
+  }
+
+  .section{
+    padding-top: 7rem;
+  }
+
+  .nav{
+    height: calc(var(--header-height) + 1.5rem);
+  }
+
+  .nav__list{
+    display: flex;
+    align-items: center;
+  }
+
+  .nav__item{
+    margin-left: var(--mb-5);
+    margin-bottom: 0;
+  }
+
+  .nav__toggle{
+    display: none;
+  }
+
+  .change-theme{
+    position: initial;
+    margin-left: var(--mb-4);
+  }
+
+  .home__container{
+    padding: 7rem 2rem 0;
+  }
+
+  .share__container{
+    padding: 0 2rem;
+  }
+  .deskripsi__container{
+    padding: 0 2rem;
+  }
+
+  .shop__container{
+    grid-template-columns: repeat(3,224px);
+    justify-content: center;
+  }
+
+  .shop__content{
+    padding: .5rem 1.5rem 1.5rem;
+  }
+
+  .shop__img{
+    width: 120px;
+    margin-bottom: var(--mb-1);
+  }
+
+  .shop__title, .shop__category{
+    text-align: initial;
+  }
+
+  .shop__button{
+    padding: .75rem;
+  }
+
+  .send{
+    background: none;
+  }
+
+  .profi_container{
+    background-color: var(--first-color-send);
+    padding: 2rem;
+    border-radius: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 968px){
+  .bd-container{
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .deskripsi__img,
+  .share__img,
+  .profi_img{
+    width: 469px;
+  }
+
+  .home__img{
+    width : 90% ;
+  } 
+
+  .home__container,
+  .deskripsi__container,
+  .profi_container{
+    column-gap: 5rem;
+  }
+  
+.wave{
+  z-index: 100;
+  margin-top:-250px;
+}
+
+}
+
+@media screen and (min-width: 1024px){
+  .bd-container{
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .deskripsi__img,
+  .share__img,
+  .profi_img{
+    width: 469px;
+  }
+
+  .home__img{
+    width : 70% ;
+  } 
+
+  .home__container,
+  .deskripsi__container,
+  .profi_container{
+    column-gap: 5rem;
+  }
+  
+.wave{
+  z-index: 1;
+  margin-top:-228px;
+}
+
+}
